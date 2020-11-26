@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+// Controlador
 const googleController = require('../controllers/google');
 
 // Obtiene los datos de mi calendario
