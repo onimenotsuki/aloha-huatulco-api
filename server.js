@@ -45,6 +45,24 @@ app.use((req, _, next) => {
   next();
 });
 
+// Agregada protección de API con APIKEY
+app.use(({ query }, res, next) => {
+  if (query.apiKey === null || typeof query.apiKey === 'undefined') {
+    return res.status(401).json({
+      message:
+        'No tienes acceso a este recurso, solicita un api-key al administrador',
+    });
+  }
+
+  if (query.apiKey !== process.env.API_KEY) {
+    return res
+      .status(403)
+      .json({ message: 'El api-key es incorrecta. Solicita una nueva.' });
+  }
+
+  return next();
+});
+
 // Ping
 app.use(health.ping('/ping'));
 
