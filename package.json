@@ -1,0 +1,39 @@
+{
+  "name": "aloha-huatulco-api",
+  "version": "1.0.0",
+  "description": "API para Sitio Web de Aloha Huatulco",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "./node_modules/.bin/nodemon server.js"
+  },
+  "keywords": [
+    "API",
+    "NodeJS",
+    "ExpressJS",
+    "Node",
+    "Express"
+  ],
+  "author": "Edgar Talledos <hola@edgartalledos.com> (https://edgartalledos.com)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-ping": "^1.4.0",
+    "express-rate-limit": "^5.2.3",
+    "googleapis": "^65.0.0",
+    "helmet": "^4.2.0",
+    "xss-clean": "^0.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.0"
+  }
+}
