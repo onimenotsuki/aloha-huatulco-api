@@ -13,6 +13,9 @@ const { calendar } = require('./src/providers/google');
 // Rutas
 const googleRoutes = require('./src/routes/google');
 
+// Pólizas
+const hasApiKey = require('./src/polices/has-api-key');
+
 // Cargamos las variables de entorno
 dotenv.config();
 
@@ -46,22 +49,7 @@ app.use((req, _, next) => {
 });
 
 // Agregada protección de API con APIKEY
-app.use(({ query }, res, next) => {
-  if (query.apiKey === null || typeof query.apiKey === 'undefined') {
-    return res.status(401).json({
-      message:
-        'No tienes acceso a este recurso, solicita un api-key al administrador',
-    });
-  }
-
-  if (query.apiKey !== process.env.API_KEY) {
-    return res
-      .status(403)
-      .json({ message: 'El api-key es incorrecta. Solicita una nueva.' });
-  }
-
-  return next();
-});
+app.use(hasApiKey);
 
 // Ping
 app.use(health.ping('/ping'));
