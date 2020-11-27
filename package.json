@@ -20,6 +20,7 @@
   "author": "Edgar Talledos <hola@edgartalledos.com> (https://edgartalledos.com)",
   "license": "UNLICENSED",
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.24",
     "axios": "^0.21.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

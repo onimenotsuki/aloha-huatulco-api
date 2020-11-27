@@ -9,9 +9,11 @@ const cors = require('cors');
 
 // Providers
 const { calendar } = require('./src/providers/google');
+const mailchimp = require('./src/providers/mailchimp');
 
 // Rutas
 const googleRoutes = require('./src/routes/google');
+const mailRoutes = require('./src/routes/mailchimp');
 
 // Pólizas
 const hasApiKey = require('./src/polices/has-api-key');
@@ -45,6 +47,7 @@ app.use(xss());
 // // como Middlewares
 app.use((req, _, next) => {
   req.calendar = calendar;
+  req.mail = mailchimp;
   next();
 });
 
@@ -56,5 +59,6 @@ app.use(health.ping('/ping'));
 
 // Rutas de Google
 app.use('/api/v1/google', googleRoutes);
+app.use('/api/v1/mail', mailRoutes);
 
 app.listen(port, () => console.log(`Server running on port:${port}`));
