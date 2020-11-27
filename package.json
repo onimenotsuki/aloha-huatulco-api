@@ -30,6 +30,7 @@
     "googleapis": "^65.0.0",
     "helmet": "^4.2.0",
     "http-status-codes": "^2.1.4",
+    "md5": "^2.3.0",
     "xss-clean": "^0.1.1"
   },
   "devDependencies": {
